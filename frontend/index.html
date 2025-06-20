@@ -16,7 +16,7 @@
         const name=document.getElementById("nameInput").value;
         const result=document.getElementById("result")
         try{
-            const res=await fetch(`/get-age?name=${name}`)
+            const res=await fetch(`https://agecalc-backend.onrender.com/get-age?name=${name}`)
             const data=await res.json();
             result.innerText = `Predicted age for "${data.name}" is ${data.age} years.`;
       } catch (err) {
