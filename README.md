@@ -7,7 +7,6 @@ A simple full-stack application that predicts the age of a person based on their
 ## 🔗 Live Demo
 
 🌐 [Live on Render](https://agecalc-frontend.onrender.com/)  
-_(Replace with your actual deployed link)_
 
 ---
 
