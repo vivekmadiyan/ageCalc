@@ -1,92 +1,132 @@
-🧠 Age Predictor App – Node.js + Agify API
-A simple full-stack app that predicts the age of a person based on their name using the Agify API. Built with Node.js and Express, and served with a clean HTML frontend.
+ 🧠 Age Predictor App – Node.js + Agify API
 
-📸 Demo
-Live Demo: https://agecalc-frontend.onrender.com/
+A simple full-stack application that predicts the age of a person based on their name using the [Agify API](https://agify.io/). Built using **Node.js**, **Express.js**, and **Axios**, with a clean static frontend served directly from the backend.
 
-Note: Replace with your actual deployed link
+---
 
-🚀 Features
-🧠 Predicts age based on name using REST API
+## 🔗 Live Demo
 
-⚡ Built with Node.js, Express.js, and Axios
+🌐 [Live on Render](https://agecalc-frontend.onrender.com/)  
+_(Replace with your actual deployed link)_
 
-🌐 Public folder serves static HTML frontend
+---
 
-📡 Uses Agify API with query parameters
+## 🚀 Features
 
-✅ Error-handling for failed API calls
+- 🧠 Predicts age from name using REST API
+- 🖥️ Frontend served with static HTML & JavaScript
+- ⚡ Uses Express.js backend with Axios for API calls
+- 🔐 Includes basic error handling
+- 🌍 Deployed live using Render
 
-🧪 Tested on multiple names
+---
 
-🛠️ Tech Stack
-Frontend: HTML, JavaScript (Vanilla)
+## 🛠️ Tech Stack
 
-Backend: Node.js, Express.js
+| Layer     | Tech           |
+|-----------|----------------|
+| Frontend  | HTML, JavaScript (Vanilla) |
+| Backend   | Node.js, Express.js |
+| API       | [Agify.io](https://agify.io) |
+| Hosting   | Render |
 
-API Used: Agify.io
+---
 
-Deployment: Render
+## 📁 Folder Structure
 
-📁 Folder Structure
-pgsql
-Copy
-Edit
 age-predictor/
 ├── public/
-│   └── index.html       ← Frontend UI
-├── index.js             ← Express backend
+│ └── index.html ← UI page
+├── index.js ← Backend server
 ├── package.json
-💡 How It Works
-User enters a name in the input field
 
-Client sends a GET request to:
+yaml
+Copy
+Edit
+
+---
+
+## 📸 How It Works
+
+1. User enters a name (e.g., `Vivek`)
+2. A GET request is made to:  
+/get-age?name=Vivek
+
+css
+Copy
+Edit
+3. Backend makes a call to:  
+https://api.agify.io?name=Vivek
 
 pgsql
 Copy
 Edit
-/get-age?name=Vivek
-Backend uses axios to fetch from:
-
-arduino
-Copy
-Edit
-https://api.agify.io?name=Vivek
-API returns predicted age, which is shown to the user
+4. Response data is returned as JSON:
+```json
+{
+  "name": "Vivek",
+  "age": 24,
+  "count": 1923
+}
+Age is displayed in the browser using JavaScript.
 
 📦 Run Locally
+1. Clone the repo
 bash
 Copy
 Edit
 git clone https://github.com/vivekmadiyan/age-predictor.git
 cd age-predictor
-npm install
-node index.js
-Visit: http://localhost:3000
-
-🌐 API Reference
-Agify API:
-📎 https://agify.io
-
-Sample Request:
-
+2. Install dependencies
 bash
 Copy
 Edit
-GET /get-age?name=Michael
-Sample Response:
-
-json
+npm install
+3. Start the server
+bash
 Copy
 Edit
-{
-  "name": "Michael",
-  "age": 69,
-  "count": 110000
-}
+node index.js
+Then open in browser:
+👉 http://localhost:3000
+
+🔌 Sample Code (Backend Route)
+js
+Copy
+Edit
+app.get("/get-age", async (req, res) => {
+  const name = req.query.name;
+  try {
+    const response = await axios.get(`https://api.agify.io?name=${name}`);
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).json({ error: 'Something went wrong!' });
+  }
+});
+📤 Deployment
+App is deployed on Render using the free web service
+
+Frontend is served via express.static('public')
+
+No environment variables needed for this project
 
 🙋‍♂️ Author
 Vivek Madiyan
-🔗 LinkedIn
-💻 GitHub
+🔗 LinkedIn Profile
+💻 GitHub Profile
+
+📌 License
+This project is open-source and free to use.
+
+yaml
+Copy
+Edit
+
+
+
+
+
+
+
+
 
